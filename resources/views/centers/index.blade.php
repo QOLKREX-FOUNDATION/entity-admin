@@ -6,6 +6,8 @@
     <h1>Centros de Registros</h1>
 @stop
 
+<input hidden value="@php echo json_encode($provinces)  @endphp" />
+
 @section('content')
     <button class="btn-sm btn-primary text-white" data-toggle="modal" data-target="#nuevo"><i
             class="fa fa-add">Nuevo</i></button>
@@ -21,11 +23,10 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col" style="width: 15%">Imagen</th>
-                <th scope="col"  style="width:60%">Nombre</th>
-                <th scope="col" style="width: 10%">Tipo</th>
-                <th scope="col" style="width: 10%">E-mail</th>
-                <th scope="col" style="width: 2%">Teléfono</th>
+                <th scope="col" style="width: 5%">Imagen</th>
+                <th scope="col"  style="width:20%">Nombre</th>
+                <th scope="col" style="width: 15%">Distrito</th>
+                <th scope="col" style="width: 40%">Dirección</th>
                 @if (Auth::user()->rol == 'Admin')
                     <th scope="col" style="width: 10%">Acción</th>
                 @endif
@@ -42,9 +43,8 @@
                         alt="centro"
                         /></td>
                         <td>{{ $item->name }}</td>
-                        <td>{{ $item->type }}</td>
-                        <td>{{ $item->email }}</td>
-                    <td>{{ $item->phone }}</td>
+                        <td>{{ $item->district }}</td>
+                        <td>{{ $item->direction }}</td>
                     @if (Auth::user()->rol == 'Admin')
                     <td>
                         <button class="btn-sm btn-warning text-white" data-toggle="modal"

@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Centers;
-use Illuminate\Support\Str;
-use Image;
-
 
 class CentersController extends Controller
 {
@@ -23,10 +20,16 @@ class CentersController extends Controller
         $centers->type =$request->type;
         $centers->direction =$request->direction;
         $centers->url =$request->url;
-        $centers->longitude = $request->longitude;
         $centers->latitude = $request->latitude;
+        $centers->longitude = $request->longitude;
+        $centers->country = $request->country;
+        $centers->department = $request->department;
+        $centers->province = $request->province;
+        $centers->district = $request->district;
         $centers->email = $request->email;
         $centers->phone = $request->phone;
+        $centers->postal = $request->postal;
+
 
         if($request->hasFile("img")){
             $centers->img = $this->imageSave($request->name, $request->file("img"), "centers");
@@ -42,10 +45,15 @@ class CentersController extends Controller
         $centers->type =$request->type;
         $centers->direction =$request->direction;
         $centers->url =$request->url;
-        $centers->longitude = $request->longitude;
         $centers->latitude = $request->latitude;
+        $centers->longitude = $request->longitude;
+        $centers->country = $request->country;
+        $centers->department = $request->department;
+        $centers->province = $request->province;
+        $centers->district = $request->district;
         $centers->email = $request->email;
         $centers->phone = $request->phone;
+        $centers->postal = $request->postal;
 
         if($request->hasFile("img")){
             $centers->img = $this->imageSave($request->name, $request->file("img"), "centers");
@@ -60,9 +68,9 @@ class CentersController extends Controller
         $centers->delete();
         return redirect()->route('centers.index')->with('alert','Se Elimino correctamente');
     }
-    public function api() {
-        $centers=Centers::latest('id')->get();
-        return response()->json($centers, 200);
 
+    public function api() {
+        $centers=Centers::orderBy('name')->get();
+        return response()->json($centers, 200);
     }
 }

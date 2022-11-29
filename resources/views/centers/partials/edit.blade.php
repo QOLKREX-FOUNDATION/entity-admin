@@ -24,16 +24,14 @@
                     </select>
                     
                     <label>Website Url:</label>
-                    <input type="text" class="form-control" name="url" required value="{{$item->url}}" minlength="4" placeholder="https://firulaixcoin.finance/">
+                    <input type="text" class="form-control" name="url"  value="{{$item->url}}"  placeholder="https://firulaixcoin.finance/">
 
-                    <label>E-mail (*):</label>
-                    <input type="text" class="form-control" name="email" value="{{$item->email}}" required minlength="2" placeholder="hello@example.com">
-
-                    <label>Teléfono (*):</label>
-                    <input type="text" class="form-control" name="phone" value="{{$item->phone}}" required minlength="2" placeholder="51939130496">
+                    <label>E-mail :</label>
+                    <input type="text" class="form-control" name="email" value="{{$item->email}}" 
+                    <label>Teléfono :</label>
+                    <input type="text" class="form-control" name="phone" value="{{$item->phone}}"  placeholder="51939130496">
                     
-                    <label>Dirección (*):</label>
-                    <input type="text" class="form-control" name="direction" value="{{$item->direction}}"  required minlength="2" placeholder="Av. Oscar R. Benavides 809 - Chincha Alta - ruc 10215685603">
+                    <input type="hidden" class="form-control" name="country" value="PERU" required  placeholder="-77.0476776,17">
 
                                         
                     <label>Latitud (*):</label>
@@ -43,7 +41,26 @@
                     <label>Longitud (*):</label>
                     <input type="text" class="form-control" name="longitude" value="{{$item->longitude}}" required  placeholder="-77.0476776,17">
                     
+                                
+                    <label>Departamento :</label>
+                    <input type="text" class="form-control" name="department" value="{{$item->department}}"   >
+
+
+                    <label>Provincia :</label>
+                    <input type="text" class="form-control" name="province"  value="{{$item->province}}"  >
+
+
+                    <label>Distrito :</label>
+                    <input type="text" class="form-control" name="district" value="{{$item->district}}"   >
+
                    
+                    <label>Dirección (*):</label>
+                    <input type="text" class="form-control" name="direction" value="{{$item->direction}}"  required minlength="2" placeholder="Av. Oscar R. Benavides 809 - Chincha Alta - ruc 10215685603">
+
+                    <label>Postal:</label>
+                    <input type="text" class="form-control" name="postal" placeholder="02002"  value="{{$item->postal}}" >
+                    
+
                     <label>Imagen:</label>
                     @if($item->img!='')
                     <img src="https://firulaixcoin.finance/images/history-version/{{$item->img}}" style="max-width:300px;max-height:300px"
